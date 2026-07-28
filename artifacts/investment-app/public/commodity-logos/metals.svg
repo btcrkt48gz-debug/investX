@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d060"/>
+      <stop offset="40%" stop-color="#D4A017"/>
+      <stop offset="70%" stop-color="#f5d060"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8900a"/>
+      <stop offset="100%" stop-color="#7a5500"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5d060"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#1a1200"/>
+  <!-- Gold bar top face -->
+  <polygon points="20,50 100,50 88,38 32,38" fill="url(#g)"/>
+  <!-- Gold bar front face -->
+  <polygon points="20,50 20,78 100,78 100,50" fill="url(#front)"/>
+  <!-- Gold bar right side -->
+  <polygon points="100,50 88,38 88,66 100,78" fill="url(#side)"/>
+  <!-- Shine line on top -->
+  <polygon points="30,44 80,44 76,40 34,40" fill="#ffe87a" opacity="0.5"/>
+  <!-- Text on front -->
+  <text x="60" y="69" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11" fill="#7a5500" opacity="0.6">GOLD</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="barrel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="40%" stop-color="#374151"/>
+      <stop offset="70%" stop-color="#4b5563"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6b7280"/>
+      <stop offset="100%" stop-color="#374151"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#0d1117"/>
+  <!-- Barrel body -->
+  <rect x="30" y="38" width="60" height="52" rx="6" fill="url(#barrel)"/>
+  <!-- Barrel top ellipse -->
+  <ellipse cx="60" cy="38" rx="30" ry="8" fill="url(#top)"/>
+  <!-- Barrel bottom ellipse -->
+  <ellipse cx="60" cy="90" rx="30" ry="8" fill="#374151"/>
+  <!-- Horizontal bands -->
+  <rect x="30" y="53" width="60" height="4" fill="#4b5563" opacity="0.5"/>
+  <rect x="30" y="71" width="60" height="4" fill="#4b5563" opacity="0.5"/>
+  <!-- Highlight -->
+  <rect x="34" y="42" width="10" height="40" rx="4" fill="white" opacity="0.06"/>
+  <!-- OIL label -->
+  <text x="60" y="67" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="12" fill="#e5e7eb" opacity="0.8">OIL</text>
+  <!-- Flame on top -->
+  <path d="M58,28 Q55,22 60,18 Q62,22 65,20 Q64,26 62,28 Z" fill="#f59e0b" opacity="0.9"/>
+</svg>

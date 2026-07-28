@@ -1,0 +1,44 @@
+# Render deployment configuration for InvestX
+# https://render.com/docs/render-yaml-spec
+#
+# Two services:
+#   1. investx-api    — Express API (Web Service)
+#   2. investx-app    — React/Vite frontend (Static Site)
+
+services:
+  # ── Backend API ──────────────────────────────────────────────────────────────
+  - type: web
+    name: investx-api
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile=false && pnpm --filter @workspace/api-server run build
+    startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_SECRET
+        generateValue: true
+      # PORT is automatically injected by Render
+
+  # ── Frontend Static Site ─────────────────────────────────────────────────────
+  - type: web
+    name: investx-app
+    runtime: static
+    buildCommand: corepack enable && pnpm install --frozen-lockfile=false && pnpm --filter @workspace/investment-app run build
+    staticPublishPath: artifacts/investment-app/dist/public
+    envVars:
+      - key: BASE_PATH
+        value: /
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
