@@ -36,7 +36,7 @@ function StrengthBar({ password }: { password: string }) {
 
 export default function Signup() {
   const [, setLocation] = useLocation();
-  const { signIn } = useAuth();
+  const { signUp } = useAuth();
   const [name, setName]           = useState('');
   const [email, setEmail]         = useState('');
   const [phone, setPhone]         = useState('');
