@@ -68,12 +68,18 @@ export default function Signup() {
       const res = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ uid, name: name.trim(), email: email.trim(), password, phone: phone.trim(), dob }),
-      });
+        body: JSON.stringify({
+  uid: fbUser.uid,
+  name: name.trim(),
+  email: email.trim(),
+  password,
+  phone: phone.trim(),
+  dob,
+}),
       if (res.ok) {
         const data = await res.json() as { token?: string };
         signIn(user, data.token);
-        await initUserDoc(uid, { name: name.trim(), email: email.trim(), phone: phone.trim(), dob });
+        await initUserDoc(fbUser.uid, { name: name.trim(), email: email.trim(), phone: phone.trim(), dob });
         setLoading(false);
         setLocation('/app');
         return;
