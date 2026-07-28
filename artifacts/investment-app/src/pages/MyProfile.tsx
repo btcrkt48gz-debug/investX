@@ -23,7 +23,7 @@ export default function MyProfile() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    getUserData(user.uid)
+    getUserData(btoa(user.email!.trim()).replace(/=/g, ''))
       .then(data => {
         if (data) {
           setProfileData({
