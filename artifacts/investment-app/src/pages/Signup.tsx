@@ -58,8 +58,11 @@ export default function Signup() {
     if (password !== confirmPw)                                          { setError('Passwords do not match.'); return; }
     if (!agreed)                                                         { setError('Please agree to the Terms and Privacy Policy.'); return; }
     setLoading(true);
-    const uid = btoa(email.trim()).replace(/=/g, '');
-    const user = { uid, displayName: name.trim(), email: email.trim() };
+    const fbUser = await signUp(
+  email.trim(),
+  password,
+  name.trim()
+);
     // Register with API server (best-effort — falls back to local-only)
     try {
       const res = await fetch('/api/auth/register', {
